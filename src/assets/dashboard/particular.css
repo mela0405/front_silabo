@@ -1,0 +1,238 @@
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f8f9fa;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-collapsed {
+    width: 70px;
+}
+
+.sidebar-header {
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header h3 {
+    color: white;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 1rem 0;
+    overflow-y: auto;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1.25rem;
+    color: #bdc3c7 !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    background: none;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white !important;
+    transform: translateX(3px);
+}
+
+.nav-link.active {
+    background-color: rgba(74, 144, 226, 0.3);
+    color: white !important;
+    border-right: 3px solid #4a90e2;
+}
+
+.sidebar-icon {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+    margin-right: 0.75rem;
+}
+
+.sidebar-collapsed .sidebar-icon {
+    margin-right: 0;
+}
+
+.sidebar-text {
+    font-weight: 500;
+}
+
+/* Submenú */
+.submenu {
+    background-color: rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease-out;
+}
+
+.submenu-link {
+    padding-left: 3rem !important;
+    font-size: 0.9rem;
+}
+
+.submenu-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        max-height: 200px;
+    }
+}
+
+.sidebar-footer {
+    padding: 1.5rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.main-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #dee2e6;
+    flex-shrink: 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-details {
+    text-align: right;
+}
+
+.content-area {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #f8f9fa;
+}
+
+.section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    height: 100%;
+    overflow-y: auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Tarjetas del Dashboard */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.chart-area {
+    background: #f8f9fa;
+    border-radius: 8px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .sidebar-collapsed {
+        width: 100%;
+        transform: none;
+    }
+
+    .main-content {
+        height: calc(100vh - 60px);
+    }
+
+    .main-header {
+        padding: 1rem;
+    }
+
+    .content-area {
+        padding: 1rem;
+    }
+
+    .section {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar-header {
+        padding: 1rem;
+    }
+
+    .nav-link {
+        padding: 0.75rem 1rem;
+    }
+
+    .user-info {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .user-info .fa-user-circle {
+        margin: 0 0 0.5rem 0;
+    }
+}
