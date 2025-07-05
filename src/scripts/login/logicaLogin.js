@@ -34,6 +34,7 @@ export default {
           localStorage.setItem('access_token', data.access);
           localStorage.setItem('name', data.nombre);
           localStorage.setItem('email', data.email);
+          localStorage.setItem('rol', data.rol);
 
           // Emitir evento para notificar login exitoso
           this.$emit('login-success');

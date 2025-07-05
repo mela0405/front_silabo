@@ -41,6 +41,6 @@ package-lock.json
 pnpm-lock.yaml
 yarn.lock
 # vite.config.js
-vite.config.ts
+#vite.config.ts
 .eslintcache
 .prettiercache
